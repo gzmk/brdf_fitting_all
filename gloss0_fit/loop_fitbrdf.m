@@ -70,11 +70,11 @@ for i = 1:iter
         break
     end
 
-    one_param_vals = getGlobal_oneparam;
-    two_param_vals = getGlobal_twoparam;
-    imname2 = strcat('/scratch/gk925/brdf_fitting_all/gloss0_fit/fit_results/multispectral/', param_name);
-    save(imname2, 'one_param_vals','two_param_vals');
-    
+%     one_param_vals = getGlobal_oneparam;
+%     two_param_vals = getGlobal_twoparam;
+%     imname2 = strcat('/scratch/gk925/brdf_fitting_all/gloss0_fit/fit_results/multispectral/', param_name);
+%     save(imname2, 'one_param_vals','two_param_vals');
+%     
     
 end
 

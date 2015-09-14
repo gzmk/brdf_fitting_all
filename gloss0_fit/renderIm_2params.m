@@ -53,8 +53,8 @@ ro_d = ['300:', num2str(var(2)/(var(1)+var(2))), ' 800:', num2str(var(2)/(var(1)
 alphau = fixedalpha; % alphau and alphav should always be the same value for isotropic brdf
 light = ['300:', num2str(var(1)+var(2)), ' 800:',num2str(var(1)+var(2))];
 mycell = {ro_s, ro_d, alphau,light};
-myparams = [ro_s, ro_d, alphau, light];
-setGlobal_twoparam(myparams);
+% myparams = [ro_s, ro_d, alphau, light];
+% setGlobal_twoparam(myparams);
 
 T = cell2table(mycell, 'VariableNames', {'ro_s' 'ro_d' 'alphau' 'light'});
 writetable(T,'/scratch/gk925/brdf_fitting_all/gloss0_fit/sphere_3params_Conditions.txt','Delimiter','\t')
