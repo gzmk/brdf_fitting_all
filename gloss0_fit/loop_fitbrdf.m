@@ -7,8 +7,8 @@ function loop_fitbrdf(iter)
 setGlobalalpha(0.2);
 
 % init 2 param fitting
-LB_2 = [0.001; 0.001];
-UB_2 = [1.0; 1.0];
+LB_2 = [0.001, 0.001];
+UB_2 = [1.0, 1.0];
 % NumDiv_2 = [5 5];
 % MinDeltaX_2 = [1e-5 1e-5];
 
