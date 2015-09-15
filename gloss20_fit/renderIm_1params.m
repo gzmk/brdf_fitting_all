@@ -107,7 +107,7 @@ montageFile = [montageName '.png'];
     MakeMontage(radianceDataFiles, montageFile, toneMapFactor, isScale, hints);
 
 % load the monochromatic image and display it
-imPath = ['/scratch/gk925/brdf_fitting_all/gloss20_fit/', hints.recipeName, '/renderings/Mitsuba/sphere_1param.mat']
+imPath = ['/scratch/gk925/brdf_fitting_all/gloss20_fit/', hints.recipeName, '/renderings/Mitsuba/test_sphere-001.mat']
 load(imPath, 'multispectralImage');
 im2 = multispectralImage;
 % figure;imshow(im2(:,:,1))
