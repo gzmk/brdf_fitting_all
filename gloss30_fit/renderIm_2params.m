@@ -61,7 +61,7 @@ writetable(T,'/scratch/gk925/brdf_fitting_all/gloss30_fit/sphere_3params_Conditi
 %% Rendering bit
 
 % Set preferences
-setpref('RenderToolbox3', 'workingFolder', '/scratch/gk925/brdf_fitting_all/gloss20_fit');
+setpref('RenderToolbox3', 'workingFolder', '/scratch/gk925/brdf_fitting_all/gloss30_fit');
 
 % use this scene and condition file. 
 parentSceneFile = 'test_sphere.dae';
