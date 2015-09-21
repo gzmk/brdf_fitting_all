@@ -3,7 +3,7 @@ Collada {
     Camera:scale|sid=scale = -1 1 1
     % move the camera for each condition
     % Camera:translate|sid=location = (xCam) (yCam) 0
-    Camera:translate|sid=location = 0 0 0.1 
+    Camera:translate|sid=location = 0 -0.004 0.1 
     % Camera:rotate|sid=rotationZ = 0 0 1 (zRotCam)
     % Camera:rotate|sid=rotationY = 0 1 0 0
     % Camera:rotate|sid=rotationX = 1 0 0 80
