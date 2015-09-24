@@ -8,10 +8,10 @@ Collada {
     % Camera:rotate|sid=rotationY = 0 1 0 0
     % Camera:rotate|sid=rotationX = 1 0 0 80
     % move and resize the sphere to match to photo
+    % Sphere:translate|sid=location = (locx) (locy) 0
     Sphere:translate|sid=location = 0 0.002 0
     Sphere:scale|sid=scale = 2.2 2.2 2.2
     Point:translate|sid=location = 0.1 0.1 0.1
-    
 }
 
 % materials
