@@ -52,23 +52,27 @@ ro_s = ['300:',num2str(var(1)/(var(1)+var(2))),' 800:',num2str(var(1)/(var(1)+va
 ro_d = ['300:', num2str(var(2)/(var(1)+var(2))), ' 800:', num2str(var(2)/(var(1)+var(2)))];
 alphau = fixedalpha; % alphau and alphav should always be the same value for isotropic brdf
 light = ['300:', num2str(var(1)+var(2)), ' 800:',num2str(var(1)+var(2))];
-mycell = {ro_s, ro_d, alphau,light};
+mycell = {ro_s, ro_d, alphau, light};
 
 
 
 T = cell2table(mycell, 'VariableNames', {'ro_s' 'ro_d' 'alphau' 'light'});
 writetable(T,'/scratch/gk925/brdf_fitting_all/gloss100_fit/sphere_3params_Conditions.txt','Delimiter','\t')
+% writetable(T,'/Local/Users/gizem/Documents/Research/GlossBump/brdf_fitting_all/gloss100_fit/sphere_3params_Conditions.txt','Delimiter','\t')
+
 %% Rendering bit
 
 % Set preferences
 setpref('RenderToolbox3', 'workingFolder', '/scratch/gk925/brdf_fitting_all/gloss100_fit');
+% setpref('RenderToolbox3', 'workingFolder', '/Local/Users/gizem/Documents/Research/GlossBump/brdf_fitting_all/gloss100_fit');
 
 % use this scene and condition file. 
 parentSceneFile = 'test_sphere.dae';
 % WriteDefaultMappingsFile(parentSceneFile); % After this step you need to edit the mappings file
 
 conditionsFile = 'sphere_3params_Conditions.txt';
-mappingsFile = 'sphere_3params_DefaultMappings.txt';
+% mappingsFile = 'sphere_3params_DefaultMappings.txt';
+mappingsFile = '100gloss_DefaultMappings.txt';
 
 % Make sure all illuminants are added to the path. 
 addpath(genpath(pwd))
@@ -105,6 +109,7 @@ montageFile = [montageName '.png'];
     MakeMontage(radianceDataFiles, montageFile, toneMapFactor, isScale, hints);
 
 % load the monochromatic image and display it
+% imPath = ['/Local/Users/gizem/Documents/Research/GlossBump/brdf_fitting_all/gloss100_fit/', hints.recipeName, '/renderings/Mitsuba/test_sphere-001.mat']
 imPath = ['/scratch/gk925/brdf_fitting_all/gloss100_fit/', hints.recipeName, '/renderings/Mitsuba/test_sphere-001.mat']
 load(imPath, 'multispectralImage');
 im2 = multispectralImage;
@@ -135,6 +140,18 @@ renderedIm = im2(:,:,1); %for multispectral rendering
 
 diff = masked_photo-renderedIm;
 costIm = sum(sum(diff.^2));
+
+
+%% How to calculate centroid of the highlight
+% Ibw = im2bw(masked_photo);
+% Ibw = imfill(Ibw,'holes');
+% Ilabel = bwlabel(Ibw);
+% stat = regionprops(Ilabel,'centroid');
+% imshow(I); hold on;
+% for x = 1: numel(stat)
+%     plot(stat(x).Centroid(1),stat(x).Centroid(2),'ro');
+% end
+% -------------------------------------------------------
 
 % cost_arr = [cost_arr;costIm];
 % % past_params = [past_params;var'];
